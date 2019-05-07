@@ -109,6 +109,7 @@ ne_sal_dir_overall = ne_sal_dir_br26 + ne_sal_dir_or13 + ne_sal_dir_or02 + ne_sa
 
 # Phentolamine Infusion vs. Saline
 
+
 # Directed - OR46, BR26, WH27, WH57
 phe_sal_dir_or46 = [0.523252268551732, 0.491019748614369, 0.559294571029945, 0.599779093339930, 0.530967992642175, 0.435030361928949, 0.527434441680192, 0.457547858753285]
 phe_inf_dir_or46 = [0.574288289612474, 0.530726626942409, 0.609735776879352, 0.625028338324387, 0.575323401088860, 0.474454549581341, 0.630429090315022, 0.527531027290634]
@@ -122,275 +123,290 @@ phe_inf_dir_wh27 = [0.723509620911941, 0.717163180337522, 0.753717562470245]
 phe_sal_dir_wh57 = [0.658962243300032, 0.684297372869443, 0.632364651820652, 0.718817488170459, 0.711379762119059]
 phe_inf_dir_wh57 = [0.685652236241114, 0.770066374778060, 0.805444389439339, 0.817972664177677, 0.846778178726015]
 
-# Undirected - 
+phe_inf_overall = phe_inf_dir_or46 + phe_inf_dir_br26 + phe_inf_dir_wh27 + phe_inf_dir_wh57
+phe_sal_overall = phe_sal_dir_or46 + phe_sal_dir_br26 + phe_sal_dir_wh27 + phe_sal_dir_wh57
+
+# Song Frequency
+
+# LC - RD02, PU31, SI026, BL16
+song_freq_undir_lcstim = [0.918666124585571, 2.02833448478658, 0.865384615644225, 2.14881678417931]
+song_freq_undir_nostim = [0.321274650679320, 0.686962486149005, 0.568163516250445, 0.402662130735009]
+rd02_songfreq_undir_lcstim = 0.918666124585571
+rd02_songfreq_undir_nostim = 0.321274650679320
+pu31_songfreq_undir_lcstim = 2.02833448478658
+pu31_songfreq_undir_nostim = 0.686962486149005
+si026_songfreq_undir_lcstim = 0.865384615644225
+si026_songfreq_undir_nostim = 0.568163516250445
+bl16_songfreq_undir_lcstim = 2.14881678417931
+bl16_songfreq_undir_nostim = 0.402662130735009
+
+rd08_numsongs_undir_lcstim = (104+69+324)/3.0
+rd08_numsongs_undir_nostim = (126+26+26)/3.0
+rd08_songfreq_undir_lcstim = rd08_numsongs_undir_lcstim/3.0/60.0
+rd08_songfreq_undir_nostim = rd08_numsongs_undir_nostim/3.0/60.0
+
+wh09_numsongs_undir_lcstim = 216/3.0
+wh09_numsongs_undir_nostim = 350/3.0
+wh09_songfreq_undir_lcstim = wh09_numsongs_undir_lcstim/3.0/60.0
+wh09_songfreq_undir_nostim = wh09_numsongs_undir_nostim/3.0/60.0
+
+# NE - 
+song_freq_undir_ne = []
+song_freq_undir_sal = []
+br02_songfreq_undir_ne = 0.807983648457375
+br02_songfreq_undir_sal = 0.408428344457098
+br0_songfreq_undir_ne = 0.969503870033304
+br0_songfreq_undir_sal = 0.212379742251317
+br26_songfreq_undir_ne = 1.65271862657103
+br26_songfreq_undir_sal = 2.06256640367153
+or02_songfreq_undir_ne = 0.386895938339382
+or02_songfreq_undir_sal = 0.422100205880415
+or13_songfreq_undir_ne = 0.510062456885792
+or13_songfreq_undir_sal = 1.14080793496730
+wh27_songfreq_undir_ne = 1.53783063348285
+wh27_songfreq_undir_sal = 1.86640471960032
+wh57_songfreq_undir_ne = 0.155933171505229
+wh57_songfreq_undir_sal = 0.273541114124578
+y437_songfreq_undir_ne = 1.68961033139108
+y437_songfreq_undir_sal = 1.14292275909326
+
+# PHE - 
+song_freq_dir_phe = []
+song_freq_dir_sal = []
+or46_songfreq_dir_phe = 2.70749398327487
+or46_songfreq_dir_sal = 0.920502087516287
+br26_songfreq_dir_phe = 4.10646387704734
+br26_songfreq_dir_sal = 4.13108838917451
+wh27_songfreq_dir_phe = 5.94827588995881
+wh27_songfreq_dir_sal = 1.62219101587864
+wh57_songfreq_dir_phe = 0.388349516220508
+wh57_songfreq_dir_sal = 1.35458167443262
+
 
 ############################# FIGURE PLOTS ###########################
 
 # Stats
 
 # Undirected LC Stim vs. No Stim
-plt.figure(figsize=(6,4))
+plt.figure(figsize=(12,8))
 plt.plot(lc_nostim_undir_rd02, lc_stim_undir_rd02, 'o', label='RD02', markersize=10)
 plt.plot(lc_nostim_undir_pu31, lc_stim_undir_pu31, 'o', label='PU31', markersize=10)
 plt.plot(lc_nostim_undir_bl16, lc_stim_undir_bl16, 'o', label='BL16', markersize=10)
 plt.plot(lc_nostim_undir_si26, lc_stim_undir_si26, 'o', label='SI026', markersize=10)
 plt.plot(lc_nostim_undir_rd08, lc_stim_undir_rd08, 'o', label='RD08', markersize=10)
-plt.plot(lc_nostim_undir_wh09, lc_stim_undir_wh09, 'k*', label='WH09 (LC Miss)', markersize=10)
+plt.plot(lc_nostim_undir_wh09, lc_stim_undir_wh09, 'ko', fillstyle='none', label='WH09 (LC Miss)', markersize=10)
 plt.plot([0.4, 0.9], [0.4, 0.9], 'k--')
 plt.xlim([0.5, 0.9])
 plt.ylim([0.5, 0.9])
-plt.legend()
-plt.title('Spectral Variability (A.U.) - Undirected Song')
-plt.xlabel('No Stimulation')
-plt.ylabel('LC Stimulation')
+plt.legend(fontsize=14)
+plt.title('Spectral Variability (A.U.) - Undirected Song', fontsize=18)
+plt.xlabel('No Stim',fontsize=18)
+plt.ylabel('LC Stim',fontsize=18)
+plt.tight_layout()
+plt.savefig('sv_undirected_lc.png', dpi=300)
 
 # Directed LC Stim vs. No Stim
-plt.figure(figsize=(6,4))
+plt.figure(figsize=(12,8))
 plt.plot(lc_nostim_dir_rd08, lc_stim_dir_rd08, 'o', label='RD08 (LC Hit)', markersize=10)
-plt.plot(lc_nostim_dir_wh09, lc_stim_dir_wh09, 'k*', label='WH09 (LC Miss)', markersize=10)
+plt.plot(lc_nostim_dir_wh09, lc_stim_dir_wh09, 'ko', fillstyle='none', label='WH09 (LC Miss)', markersize=10)
 plt.plot([0.4, 0.9], [0.4, 0.9], 'k--')
 plt.xlim([0.5, 0.9])
 plt.ylim([0.5, 0.9])
-plt.legend()
-plt.title('Spectral Variability (A.U.) - Directed Song')
-plt.xlabel('No Stimulation')
-plt.ylabel('LC Stimulation')
+plt.legend(fontsize=14)
+plt.title('Spectral Variability (A.U.) - Directed Song', fontsize=18)
+plt.xlabel('No Stim',fontsize=18)
+plt.ylabel('LC Stim',fontsize=18)
+plt.savefig('sv_directed_lc.png', dpi=300)
 
 # Undirected NE Infusion vs. Saline
-plt.figure(figsize=(6,4))
+plt.figure(figsize=(12,8))
 plt.plot(ne_sal_undir_br02, ne_inf_undir_br02, 'o', label='BR02', markersize=10)
 plt.plot(ne_sal_undir_br26, ne_inf_undir_br26, 'o', label='BR26', markersize=10)
 plt.plot(ne_sal_undir_or13, ne_inf_undir_or13, 'o', label='OR13', markersize=10)
 plt.plot(ne_sal_undir_or02, ne_inf_undir_or02, 'o', label='OR02', markersize=10)
-plt.plot(ne_sal_undir_wh27, ne_inf_undir_wh27, 'o', label='WH27', markersize=10)
-plt.plot(ne_sal_undir_wh57, ne_inf_undir_wh57, 'o', label='WH57', markersize=10)
+plt.plot(ne_sal_undir_wh27, ne_inf_undir_wh27, 'o', label='WH27', markersize=10, color='m')
+plt.plot(ne_sal_undir_wh57, ne_inf_undir_wh57, 'o', label='WH57', markersize=10, color='c')
 plt.plot(ne_sal_undir_y437, ne_inf_undir_y437, 'o', label='Y437', markersize=10)
 plt.plot(ne_sal_undir_br0, ne_inf_undir_br0, 'o', label='BR0', markersize=10)
 plt.plot([0.4, 0.9], [0.4, 0.9], 'k--')
 plt.xlim([0.5, 0.9])
 plt.ylim([0.5, 0.9])
-plt.legend()
-plt.title('Spectral Variability (A.U.) - Undirected Song')
-plt.xlabel('NE Infusion in RA')
-plt.ylabel('Saline Infusion')
+plt.legend(fontsize=14)
+plt.title('Spectral Variability (A.U.) - Undirected Song', fontsize=18)
+plt.ylabel('Norepinephrine',fontsize=18)
+plt.xlabel('Saline',fontsize=18)
+plt.savefig('sv_undirected_ne.png', dpi=300)
 
 # Directed NE Infusion vs. Saline - TODO: figure out the correct saline structs for PHE/NE and how that influences specdata_honed
-plt.figure(figsize=(6,4))
+plt.figure(figsize=(12,8))
 plt.plot(ne_sal_dir_br02, ne_inf_dir_br02, 'o', label='BR02', markersize=10)
 plt.plot(ne_sal_dir_br26, ne_inf_dir_br26, 'o', label='BR26', markersize=10)
 plt.plot(ne_sal_dir_or13, ne_inf_dir_or13, 'o', label='OR13', markersize=10)
 plt.plot(ne_sal_dir_or02, ne_inf_dir_or02, 'o', label='OR02', markersize=10)
-plt.plot(ne_sal_dir_wh27, ne_inf_dir_wh27, 'o', label='WH27', markersize=10)
-plt.plot(ne_sal_dir_wh57, ne_inf_dir_wh57, 'o', label='WH57', markersize=10)
+plt.plot(ne_sal_dir_wh27, ne_inf_dir_wh27, 'o', label='WH27', markersize=10, color = 'm')
+plt.plot(ne_sal_dir_wh57, ne_inf_dir_wh57, 'o', label='WH57', markersize=10, color = 'c')
 plt.plot([0.4, 0.9], [0.4, 0.9], 'k--')
 plt.xlim([0.5, 0.9])
 plt.ylim([0.5, 0.9])
-plt.legend()
-plt.title('Spectral Variability (A.U.) - Directed Song')
-plt.xlabel('NE Infusion in RA')
-plt.ylabel('Saline Infusion')
+plt.legend(fontsize=14)
+plt.title('Spectral Variability (A.U.) - Directed Song', fontsize=18)
+plt.ylabel('Norepinephrine', fontsize=18)
+plt.xlabel('Saline', fontsize=18)
+plt.savefig('sv_directed_ne.png', dpi=300)
+
+# PHE song frequency
 
 # Directed PHE Infusion vs. Salineplt.figure(figsize=(6,4))
-plt.figure(figsize=(6,4))
+plt.figure(figsize=(12,8))
 plt.plot(phe_sal_dir_or46, phe_inf_dir_or46, 'o', label='OR46', markersize=10)
 plt.plot(phe_sal_dir_br26, phe_inf_dir_br26, 'o', label='BR26', markersize=10)
-plt.plot(phe_sal_dir_wh27, phe_inf_dir_wh27, 'o', label='WH27', markersize=10)
-plt.plot(phe_sal_dir_wh57, phe_inf_dir_wh57, 'o', label='WH57', markersize=10)
+plt.plot(phe_sal_dir_wh27, phe_inf_dir_wh27, 'o', label='WH27', markersize=10, color='m')
+plt.plot(phe_sal_dir_wh57, phe_inf_dir_wh57, 'o', label='WH57', markersize=10, color='c')
 plt.plot([0.4, 0.9], [0.4, 0.9], 'k--')
 plt.xlim([0.5, 0.9])
 plt.ylim([0.5, 0.9])
-plt.legend()
-plt.title('Spectral Variability (A.U.) - Directed Song')
-plt.xlabel('PHE Infusion in RA')
-plt.ylabel('Saline Infusion')
+plt.legend(fontsize=14)
+plt.title('Spectral Variability (A.U.) - Directed Song', fontsize=18)
+plt.ylabel('Phentolamine', fontsize=18)
+plt.xlabel('Saline ', fontsize=18)
+plt.savefig('sv_directed_phe.png', dpi=300)
+
+# PHE rhythmic variability
+
+# PHE tempo variability
 
 # Box and whisker plot - LC Stimulation
-plt.figure(figsize=(6,6))
 lc_rd08_overall = [lc_stim_dir_rd08, lc_nostim_dir_rd08, lc_stim_undir_rd08, lc_nostim_undir_rd08]
-ax1 = sns.stripplot(data=lc_rd08_overall, size=10, jitter=0.05, linewidth=1)
-for i in range(0, len(lc_rd08_overall[0])):
-    plt.plot([0, 1], [lc_rd08_overall[0][i], lc_rd08_overall[1][i]], 'k')
-for i in range(0, len(lc_rd08_overall[2])):
-    plt.plot([2, 3], [lc_rd08_overall[2][i], lc_rd08_overall[3][i]], 'k')
-ax1.set_xticklabels(['Directed - LC Stim', 'Directed - No Stim', 'Undirected - LC Stim', 'Undirected - No Stim'], rotation=45)
-plt.ylabel('Spectral Variability (A.U.)')
-plt.title('RD08 (LC Hit)')
-plt.ylim([0.4, 1.0])
 
-undir_rd08_x1, undir_rd08_x2 = 2, 3
-undir_rd08_y, h, col = 0.8, 0.025, 'k'
-plt.plot([undir_rd08_x1, undir_rd08_x1, undir_rd08_x2, undir_rd08_x2], [undir_rd08_y, undir_rd08_y+h, undir_rd08_y+h, undir_rd08_y], lw=1.5, c=col)
-plt.text((undir_rd08_x1+undir_rd08_x2)*.5, undir_rd08_y+h, "* (P = 0.032)", ha='center', va='bottom', color=col);
-
-dir_rd08_x1, dir_rd08_x2 = 0, 1
-dir_rd08_y, h, col = 0.8, 0.025, 'k'
-plt.plot([dir_rd08_x1, dir_rd08_x1, dir_rd08_x2, dir_rd08_x2], [dir_rd08_y, dir_rd08_y+h, dir_rd08_y+h, dir_rd08_y], lw=1.5, c=col)
-plt.text((dir_rd08_x1+dir_rd08_x2)*.5, dir_rd08_y+h, "* (P = 0.014)", ha='center', va='bottom', color=col);
-
-stim_x1, stim_x2 = 0, 2
-stim_y, h, col = 0.845, 0.025, 'k'
-plt.plot([stim_x1, stim_x1, stim_x2, stim_x2], [stim_y, stim_y+h, stim_y+h, stim_y], lw=1.5, c=col)
-plt.text((stim_x1+stim_x2)*.5, stim_y+h, "* (P = 7.9e-3)", ha='center', va='bottom', color=col);
-
-nostim_x1, nostim_x2 = 1, 3
-nostim_y, h, col = 0.9, 0.025, 'k'
-plt.plot([nostim_x1, nostim_x1, nostim_x2, nostim_x2], [nostim_y, nostim_y+h, nostim_y+h, nostim_y], lw=1.5, c=col)
-plt.text((nostim_x1+nostim_x2)*.5, nostim_y+h, "* (P = 0.023)", ha='center', va='bottom', color=col);
-
-plt.figure(figsize=(6,6))
 lc_wh09_overall = [lc_stim_dir_wh09, lc_nostim_dir_wh09, lc_stim_undir_wh09, lc_nostim_undir_wh09]
-ax1 = sns.stripplot(data=lc_wh09_overall, size=10, jitter=0.05, linewidth=1)
-for i in range(0, len(lc_wh09_overall[0])):
-    plt.plot([0, 1], [lc_wh09_overall[0][i], lc_wh09_overall[1][i]], 'k')
-for i in range(0, len(lc_wh09_overall[2])):
-    plt.plot([2, 3], [lc_wh09_overall[2][i], lc_wh09_overall[3][i]], 'k')
-ax1.set_xticklabels(['Directed - LC Stim', 'Directed - No Stim', 'Undirected - LC Stim', 'Undirected - No Stim'], rotation=45)
-plt.ylabel('Spectral Variability (A.U.)')
-plt.title('WH09 (LC Miss)')
-plt.ylim([0.4, 1.0])
-
-undir_wh09_x1, undir_wh09_x2 = 2, 3
-undir_wh09_y, h, col = 0.8, 0.025, 'k'
-plt.plot([undir_wh09_x1, undir_wh09_x1, undir_wh09_x2, undir_wh09_x2], [undir_wh09_y, undir_wh09_y+h, undir_wh09_y+h, undir_wh09_y], lw=1.5, c=col)
-plt.text((undir_wh09_x1+undir_wh09_x2)*.5, undir_wh09_y+h, "* (P = 0.045)", ha='center', va='bottom', color=col);
-
-dir_wh09_x1, dir_wh09_x2 = 0, 1
-dir_wh09_y, h, col = 0.8, 0.025, 'k'
-plt.plot([dir_wh09_x1, dir_wh09_x1, dir_wh09_x2, dir_wh09_x2], [dir_wh09_y, dir_wh09_y+h, dir_wh09_y+h, dir_wh09_y], lw=1.5, c=col)
-plt.text((dir_wh09_x1+dir_wh09_x2)*.5, dir_wh09_y+h, "* (P = 0.043)", ha='center', va='bottom', color=col);
-
-stim_wh09_x1, stim_wh09_x2 = 0, 2
-stim_wh09_y, h, col = 0.845, 0.025, 'k'
-plt.plot([stim_wh09_x1, stim_wh09_x1, stim_wh09_x2, stim_wh09_x2], [stim_wh09_y, stim_wh09_y+h, stim_wh09_y+h, stim_wh09_y], lw=1.5, c=col)
-plt.text((stim_wh09_x1+stim_wh09_x2)*.5, stim_wh09_y+h, "ns (P = 0.076)", ha='center', va='bottom', color=col);
-
-nostim_wh09_x1, nostim_wh09_x2 = 1, 3
-nostim_wh09_y, h, col = 0.9, 0.025, 'k'
-plt.plot([nostim_wh09_x1, nostim_wh09_x1, nostim_wh09_x2, nostim_wh09_x2], [nostim_wh09_y, nostim_wh09_y+h, nostim_wh09_y+h, nostim_wh09_y], lw=1.5, c=col)
-plt.text((nostim_wh09_x1+nostim_wh09_x2)*.5, nostim_wh09_y+h, "ns (P = 0.011)", ha='center', va='bottom', color=col);
-
 
 # LC boxplot
 lc_overall = [lc_stim_undir_overall, lc_nostim_undir_overall]
-plt.figure(figsize=(6,6))
-ax1 = sns.boxplot(data=lc_overall)
-ax2 = sns.swarmplot(data=lc_overall, color=".25")
-ax1.set_xticklabels(['LC Stim (n=5)', 'No Stim (n=5)'], rotation=45)
-plt.ylabel('Spectral Variability (A.U.)')
-plt.title('Undirected Song')
+plt.figure(figsize=(12,12))
+ax1 = sns.boxplot(data=lc_overall, showfliers=False, color='c')
+ax2 = sns.swarmplot(data=lc_overall, color=".25", size=10)
+ax1.set_xticklabels(['LC Stim', 'No Stim'], fontsize=18, rotation=45)
+plt.ylabel('Spectral Variability (A.U.)', fontsize=18)
+plt.title('Undirected Song', fontsize=18)
 plt.ylim([0.4, 0.9])
 plt.tight_layout()
 
 lc_undir_x1, lc_undir_x2 = 0, 1
 lc_undir_y, h, col = 0.865, 0.01, 'k'
 plt.plot([lc_undir_x1, lc_undir_x1, lc_undir_x2, lc_undir_x2], [lc_undir_y, lc_undir_y+h, lc_undir_y+h, lc_undir_y], lw=1.5, c=col)
-plt.text((lc_undir_x1+lc_undir_x2)*.5, lc_undir_y+h, "* (P = 7e-06)", ha='center', va='bottom', color=col);
-
-lc_undir_t_val, lc_undir_p_val = ttest_rel(lc_overall[0], lc_overall[1])
-
-# LC strip plot
-plt.figure(figsize=(6,6))
-ax1 = sns.stripplot(data=lc_overall, size=10, jitter=0.025, linewidth=1)
-for i in range(0, len(lc_overall[0])):
-    plt.plot([0, 1], [lc_overall[0][i], lc_overall[1][i]], 'k')
-ax1.set_xticklabels(['LC Stim (n=5)', 'No Stim (n=5)'], rotation=45)
-plt.ylabel('Spectral Variability (A.U.)')
-plt.title('Undirected Song')
-plt.ylim([0.4, 1.0])
-
-lc_x1, lc_x2 = 0, 1
-lc_y, h, col = 0.9, 0.025, 'k'
-plt.plot([lc_x1, lc_x1, lc_x2, lc_x2], [lc_y, lc_y+h, lc_y+h, lc_y], lw=1.5, c=col)
-plt.text((lc_x1+lc_x2)*.5, lc_y+h, "* (P = 7e-06)", ha='center', va='bottom', color=col);
+plt.text((lc_undir_x1+lc_undir_x2)*.5, lc_undir_y+h, "* (P = 3.5e-06)", ha='center', va='bottom', color=col, fontsize=14);
+plt.savefig('boxwhisker_undirected_lc.png', dpi=300)
 
 # box and whisker plot - NE Infusion
 ne_overall = [ne_inf_dir_overall, ne_sal_dir_overall, ne_inf_undir_overall, ne_sal_undir_overall]
-plt.figure(figsize=(8,6))
-ax1 = sns.boxplot(data=ne_overall)
-ax2 = sns.swarmplot(data=ne_overall, color=".25")
-ax1.set_xticklabels(['Directed - NE Infusion (n=5)', 'Directed - Saline (n=5)', 'Undirected - NE Infusion (n=8)', 'Undirected - Saline (n=8)'], rotation=45)
-plt.ylabel('Spectral Variability (A.U.)')
-plt.title('NE Infusion vs. Saline')
+plt.figure(figsize=(12,12))
+ax1 = sns.boxplot(data=ne_overall[2:], showfliers=False, color='c')
+ax2 = sns.swarmplot(data=ne_overall[2:], color=".25", size=10)
+plt.title('Undirected Song', fontsize=18)
+plt.ylabel('Spectral Variability (A.U.)', fontsize=18)
 plt.ylim([0.4, 1.0])
-
-undir_x1, undir_x2 = 2, 3
+ax1.set_xticklabels(['Norepinephrine', 'Saline'], fontsize=18, rotation=45)
+plt.tight_layout()
+undir_x1, undir_x2 = 0, 1
 undir_y, h, col = 0.8, 0.025, 'k'
 plt.plot([undir_x1, undir_x1, undir_x2, undir_x2], [undir_y, undir_y+h, undir_y+h, undir_y], lw=1.5, c=col)
-plt.text((undir_x1+undir_x2)*.5, undir_y+h, "* (P = 1.6e-06)", ha='center', va='bottom', color=col);
+plt.text((undir_x1+undir_x2)*.5, undir_y+h, "* (P = 8e-07)", ha='center', va='bottom', color=col, fontsize=14);
+plt.savefig('boxwhisker_ne.png', dpi=300)
 
-dir_x1, dir_x2 = 0, 1
-dir_y, h, col = 0.8, 0.025, 'k'
-plt.plot([dir_x1, dir_x1, dir_x2, dir_x2], [dir_y, dir_y+h, dir_y+h, dir_y], lw=1.5, c=col)
-plt.text((dir_x1+dir_x2)*.5, dir_y+h, "ns (P = 0.128)", ha='center', va='bottom', color=col);
-
-inf_x1, inf_x2 = 0, 2
-inf_y, h, col = 0.845, 0.025, 'k'
-plt.plot([inf_x1, inf_x1, inf_x2, inf_x2], [inf_y, inf_y+h, inf_y+h, inf_y], lw=1.5, c=col)
-plt.text((inf_x1+inf_x2)*.5, inf_y+h, "* (P = 3.3e-3)", ha='center', va='bottom', color=col);
-
-sal_x1, sal_x2 = 1, 3
-sal_y, h, col = 0.9, 0.025, 'k'
-plt.plot([sal_x1, sal_x1, sal_x2, sal_x2], [sal_y, sal_y+h, sal_y+h, sal_y], lw=1.5, c=col)
-plt.text((sal_x1+sal_x2)*.5, sal_y+h, "ns (P = 0.137)", ha='center', va='bottom', color=col);
-
-
-# strip plot for NE condition
-plt.figure(figsize=(8,6))
-ax1 = sns.stripplot(data=ne_overall, size=10, jitter=0.05, linewidth=1)
-for i in range(0, len(ne_overall[0])):
-    plt.plot([0, 1], [ne_overall[0][i], ne_overall[1][i]], 'k')
-for i in range(0, len(ne_overall[2])):
-    plt.plot([2, 3], [ne_overall[2][i], ne_overall[3][i]], 'k')
-ax1.set_xticklabels(['Directed - NE Infusion (n=5)', 'Directed - Saline (n=5)', 'Undirected - NE Infusion (n=8)', 'Undirected - Saline (n=8)'], rotation=45)
-plt.ylabel('Spectral Variability (A.U.)')
-plt.title('NE Infusion vs. Saline')
+# phe boxplot
+phe_overall = [phe_inf_overall, phe_sal_overall]
+plt.figure(figsize=(12,12))
+ax1 = sns.boxplot(data=phe_overall, showfliers=False, color='c')
+ax2 = sns.swarmplot(data=phe_overall, color=".25", size=10)
+plt.title('Directed Song', fontsize=18)
+plt.ylabel('Spectral Variability (A.U.)', fontsize=18)
 plt.ylim([0.4, 1.0])
+ax1.set_xticklabels(['Phentolamine', 'Saline'], fontsize=18, rotation=45)
+plt.tight_layout()
 
-undir_x1, undir_x2 = 2, 3
-undir_y, h, col = 0.8, 0.025, 'k'
-plt.plot([undir_x1, undir_x1, undir_x2, undir_x2], [undir_y, undir_y+h, undir_y+h, undir_y], lw=1.5, c=col)
-plt.text((undir_x1+undir_x2)*.5, undir_y+h, "* (P = 1.6e-06)", ha='center', va='bottom', color=col);
+phe_dir_x1, phe_dir_x2 = 0, 1
+phe_dir_y, h, col = 0.9, 0.025, 'k'
+plt.plot([phe_dir_x1, phe_dir_x1, phe_dir_x2, phe_dir_x2], [phe_dir_y, phe_dir_y+h, phe_dir_y+h, phe_dir_y], lw=1.5, c=col)
+plt.text((phe_dir_x1+phe_dir_x2)*.5, phe_dir_y+h, "* (P = 2.6e^-04)", ha='center', va='bottom', color=col, fontsize=14);
 
-dir_x1, dir_x2 = 0, 1
-dir_y, h, col = 0.8, 0.025, 'k'
-plt.plot([dir_x1, dir_x1, dir_x2, dir_x2], [dir_y, dir_y+h, dir_y+h, dir_y], lw=1.5, c=col)
-plt.text((dir_x1+dir_x2)*.5, dir_y+h, "ns (P = 0.128)", ha='center', va='bottom', color=col);
+plt.savefig('phe_directed_boxplot.png', dpi=300)
 
-inf_x1, inf_x2 = 0, 2
-inf_y, h, col = 0.845, 0.025, 'k'
-plt.plot([inf_x1, inf_x1, inf_x2, inf_x2], [inf_y, inf_y+h, inf_y+h, inf_y], lw=1.5, c=col)
-plt.text((inf_x1+inf_x2)*.5, inf_y+h, "* (P = 3.3e-3)", ha='center', va='bottom', color=col);
+# song frequency plots
 
-sal_x1, sal_x2 = 1, 3
-sal_y, h, col = 0.9, 0.025, 'k'
-plt.plot([sal_x1, sal_x1, sal_x2, sal_x2], [sal_y, sal_y+h, sal_y+h, sal_y], lw=1.5, c=col)
-plt.text((sal_x1+sal_x2)*.5, sal_y+h, "ns (P = 0.137)", ha='center', va='bottom', color=col);
+plt.figure(figsize=(12,12))
+plt.plot(rd02_songfreq_undir_nostim, rd02_songfreq_undir_lcstim, 'o', markersize=12, label='RD02')
+plt.plot(pu31_songfreq_undir_nostim, pu31_songfreq_undir_lcstim, 'o', markersize=12, label='PU31')
+plt.plot(bl16_songfreq_undir_nostim, bl16_songfreq_undir_lcstim, 'o', markersize=12, label='BL16')
+plt.plot(si026_songfreq_undir_nostim, si026_songfreq_undir_lcstim, 'o', markersize=12, label='SI026')
+plt.plot(rd08_songfreq_undir_nostim, rd08_songfreq_undir_lcstim, 'o', markersize=12, label='RD08')
+plt.plot(wh09_songfreq_undir_nostim, wh09_songfreq_undir_lcstim, 'ko', fillstyle='none', markersize=10, label='WH09')
+plt.plot([0, 3], [0, 3], 'k--')
+plt.title('Singing Frequency (songs/min) - Undirected', fontsize=18)
+plt.xlabel('No Stim', fontsize=18)
+plt.xlim([0, 2.5])
+plt.ylabel('LC Stim', fontsize=18)
+plt.ylim([0, 2.5])
+plt.tight_layout()
+plt.legend(fontsize=14)
+plt.savefig('songfreq_lc_zach.png', dpi=300)
 
+plt.figure(figsize=(12,12))
+plt.plot(br02_songfreq_undir_sal, br02_songfreq_undir_ne, 'o', markersize=12, label='BR02')
+plt.plot(br26_songfreq_undir_sal, br26_songfreq_undir_ne, 'o', markersize=12, label='BR26')
+plt.plot(or13_songfreq_undir_sal, or13_songfreq_undir_ne, 'o', markersize=12, label='OR13')
+plt.plot(or02_songfreq_undir_sal, or02_songfreq_undir_ne, 'o', markersize=12, label='OR02')
+plt.plot(wh27_songfreq_undir_sal, wh27_songfreq_undir_ne, 'o', markersize=12, label='WH27')
+plt.plot(wh57_songfreq_undir_sal, wh57_songfreq_undir_ne, 'o', markersize=12, label='WH57')
+plt.plot(y437_songfreq_undir_sal, y437_songfreq_undir_ne, 'o', markersize=12, label='Y437')
+plt.plot(br0_songfreq_undir_sal, br0_songfreq_undir_ne, 'o', markersize=12, label='BR0')
+plt.plot([0, 5], [0, 5], 'k--')
+plt.title('Singing Frequency (songs/min) - Undirected', fontsize=18)
+plt.xlabel('Saline', fontsize=18)
+plt.xlim([0, 5])
+plt.ylabel('Norepinephrine', fontsize=18)
+plt.ylim([0, 5])
+plt.tight_layout()
+plt.legend(fontsize=14)
+plt.savefig('songfreq_ne_zach.png', dpi=300)
+
+plt.figure(figsize=(12,12))
+plt.plot(or46_songfreq_dir_sal, or46_songfreq_dir_phe, 'o', markersize=12, label='OR46')
+plt.plot(br26_songfreq_dir_sal, br26_songfreq_dir_phe, 'o', markersize=12, label='BR26')
+plt.plot(wh27_songfreq_dir_sal, wh27_songfreq_dir_phe, 'o', markersize=12, label='WH27')
+plt.plot(wh57_songfreq_dir_sal, wh57_songfreq_dir_phe, 'o', markersize=12, label='WH57')
+plt.plot([0, 6], [0, 6], 'k--')
+plt.title('Singing Frequency (songs/min) - Directed', fontsize=18)
+plt.xlabel('Saline', fontsize=18)
+plt.xlim([0, 6])
+plt.ylabel('Phentolamine', fontsize=18)
+plt.ylim([0, 6])
+plt.tight_layout()
+plt.legend(fontsize=14)
+plt.savefig('songfreq_phe_zach.png', dpi=300)
 
 ne_averages = []
 for i in range(0, len(ne_overall)):
     ne_averages.append(np.sum(ne_overall[i])/len(ne_overall[i]))
     
-# TODO - 
-
 ne_dir_t_val, ne_dir_p_val = ttest_rel(ne_overall[0], ne_overall[1])
-ne_undir_t_val, ne_undir_p_val = ttest_rel(ne_overall[2], ne_overall[3])
+ne_undir_t_val, ne_undir_p_val = ttest_rel(ne_overall[2], ne_overall[3]) 
+ne_undir_p_val = ne_undir_p_val / 2.0
 ne_inf_t_val, ne_inf_p_val = ttest_rel(ne_overall[0], ne_overall[2][:len(ne_overall[0])])
+ne_inf_p_val = ne_inf_p_val / 2.0
 ne_sal_t_val, ne_sal_p_val = ttest_rel(ne_overall[1], ne_overall[3][:len(ne_overall[1])])
-
-ne_dir_f_val, ne_dir_p_val_anova = f_oneway(ne_overall[0], ne_overall[1])
-ne_undir_f_val, ne_undir_p_val_anova = f_oneway(ne_overall[2], ne_overall[3])
+ne_sal_p_val = ne_sal_p_val / 2.0
 
 rd08_dir_t_val, rd08_dir_p_val = ttest_rel(lc_rd08_overall[0], lc_rd08_overall[1])
-rd08_undir_t_val, rd08_undir_p_val = ttest_rel(lc_rd08_overall[2], lc_rd08_overall[3])
-rd08_stim_t_val, rd08_stim_p_val = ttest_rel(lc_rd08_overall[0], lc_rd08_overall[2])
-rd08_nostim_t_val, rd08_nostim_p_val = ttest_rel(lc_rd08_overall[1], lc_rd08_overall[3])
+
+lc_undir_t_val, lc_undir_p_val = ttest_rel(lc_overall[0], lc_overall[1])
+lc_undir_p_val = lc_undir_p_val / 2.0
+
+phe_dir_t_val, phe_dir_p_val = ttest_rel(phe_inf_overall, phe_sal_overall)
+phe_dir_p_val= phe_dir_p_val / 2.0
 
 wh09_dir_t_val, wh09_dir_p_val = ttest_rel(lc_wh09_overall[0], lc_wh09_overall[1])
 wh09_undir_t_val, wh09_undir_p_val = ttest_rel(lc_wh09_overall[2], lc_wh09_overall[3])
-wh09_stim_t_val, wh09_stim_p_val = ttest_rel(lc_wh09_overall[0], lc_wh09_overall[2])
-wh09_nostim_t_val, wh09_nostim_p_val = ttest_rel(lc_wh09_overall[1], lc_wh09_overall[3])
-
+wh09_undir_p_val = wh09_undir_p_val / 2.0
 
 
 
